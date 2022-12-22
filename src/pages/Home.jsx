@@ -93,7 +93,7 @@ const Home = () => {
               </motion.button>
             </Col>
             <Col lg="6" md="12" className="text-end counter__img">
-              <img src={counterImg} alt="" />
+              <img src={banner[0]?.imgUrl} alt="" />
             </Col>
           </Row>
         </Container>

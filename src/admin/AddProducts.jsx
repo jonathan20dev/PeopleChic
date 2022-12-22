@@ -30,7 +30,7 @@ const AddProducts = () => {
     setLoading(true);
     //add product to firebase database
     try {
-      const docRef = await collection(db, "products");
+      const docRef = await collection(db, "productos");
       const storageRef = ref(
         storage,
         `productImages/${Date.now() + product.imgUrl.name}`
@@ -44,11 +44,11 @@ const AddProducts = () => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await addDoc(docRef, { ...product, imgUrl: downloadURL });
+            toast.success("Product added succesfuly");
           });
         }
       );
       setLoading(false);
-      toast.success("Product added succesfuly");
       navigate("/dashboard/all-products");
     } catch (err) {
       setLoading(false);
