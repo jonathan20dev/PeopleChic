@@ -6,7 +6,7 @@ import { updateDoc, doc } from "firebase/firestore";
 import "../styles/orders.css";
 
 const Orders = () => {
-  const { data: orders, loading } = useGetData("orders");
+  const { data: orders, loading } = useGetData("ordenes");
 
   const handleComplete = async(id, status) => {
     const docRef = doc(db, 'orders', id)

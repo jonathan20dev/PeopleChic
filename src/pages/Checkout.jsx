@@ -74,20 +74,28 @@ const Checkout = () => {
   };
 
   const handleCountry = ({ target }) => {
-    const billingObj = { ...billingInfo, [target.name]: target.name };
+    const valores = target.value.split(',')
+    const billingObj = { ...billingInfo, country: valores[1] };
     setBilllingInfo(billingObj);
 
-    const countryStates = statedata.filter(state => state.country_id === target.value)
+    const countryStates = statedata.filter(state => state.country_id === valores[0])
     setStates(countryStates)
     setCities([])
   }
 
   const handleState = ({ target }) => {
-    const billingObj = { ...billingInfo, [target.name]: target.name };
+    const valores = target.value.split(',')
+    const billingObj = { ...billingInfo, state: valores[1] };
     setBilllingInfo(billingObj);
 
-    const stateCities = citydata.filter(city => city.state_id === target.value)
+    const stateCities = citydata.filter(city => city.state_id === valores[0])
     setCities(stateCities)
+  }
+
+  const handleCity = ({ target }) => {
+    const valores = target.value.split(',')
+    const billingObj = { ...billingInfo, city: valores[1] };
+    setBilllingInfo(billingObj);
   }
 
   return (
@@ -128,7 +136,7 @@ const Checkout = () => {
                     <option value="">Country</option>
                     {
                       countrydata.map((country) => (
-                        <option value={country.country_id} key={country.country_id}>{country.country_name}</option>
+                        <option value={[country.country_id, country.country_name]} key={country.country_id}>{country.country_name}</option>
                       ))
                     }
                   </select>
@@ -138,17 +146,17 @@ const Checkout = () => {
                     <option value="">State</option>
                     {
                       states.map((state) => (
-                        <option value={state.state_id} key={state.state_id}>{state.state_name}</option>
+                        <option value={[state.state_id, state.state_name]} key={state.state_id}>{state.state_name}</option>
                       ))
                     }
                 </select>
                 </FormGroup>
                 <FormGroup className="form__group">
-                <select name="city">
+                <select name="city" onChange={handleCity}>
                     <option value="">City</option>
                     {
                       cities.map((city) => (
-                        <option value={city.city_id} key={city.city_id}>{city.city_name}</option>
+                        <option value={[city.city_id, city.city_name]} key={city.city_id}>{city.city_name}</option>
                       ))
                     }
                 </select>

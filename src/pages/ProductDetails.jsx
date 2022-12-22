@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 import { db } from "../firebase.config"; 
-import { doc, getDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { useGetData } from "../custom-hooks/useGetData";
 
 const ProductDetails = () => {
@@ -33,7 +33,7 @@ const ProductDetails = () => {
   const reviewMsg = useRef('')
   const dispatch = useDispatch()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const reviewUserName = reviewUser.current.value
     const reviewUserMsg = reviewMsg.current.value
@@ -42,8 +42,19 @@ const ProductDetails = () => {
       text: reviewUserMsg,
       rating
     }
-    toast.success('Thanks for letting a review!')
-    setProduct({...product, reviews: [...product.reviews, reviewObj]})
+    let sumRatings = 0
+    for (let index = 0; index < product.reviews.length; index++) {
+      sumRatings = parseInt(product.reviews[index].rating) + sumRatings
+    }
+    const promRatings = ((sumRatings + rating)/(product.reviews.length+1)).toFixed(2)
+    setProduct({...product, reviews: [...product.reviews, reviewObj], avgRating: promRatings})
+      try {
+        const docRef = await doc(db, "productos", id);
+        await setDoc(docRef, { ...product, reviews: [...product.reviews, reviewObj], avgRating: promRatings });
+        toast.success('Thanks for letting a review!')
+      } catch (err) {
+        toast.error("Couldn't upload your review");
+      }
   }
 
   const addToCart = () => {
@@ -69,10 +80,11 @@ const ProductDetails = () => {
     }
     getProduct()
   }, [])
+
   return (
     <Helmet title={product.productName}>
       <CommonSection title={product.productName} />
-      <section className="pt-0">
+      <section className="pt-5">
         <Container>
           <Row>
             <Col lg="6">
@@ -100,7 +112,7 @@ const ProductDetails = () => {
                     </span>
                   </div>
                   <p>
-                    (<span>{product.avgRating}</span> ratings)
+                    (<span>{product.avgRating}</span> rating)
                   </p>
                 </div>
                 <div className="d-flex align-items-center gap-5">
@@ -186,7 +198,7 @@ const ProductDetails = () => {
               )}
             </Col>
             <Col lg='12' className="mt-5">
-              <h2 className="related__title">You might also like</h2>
+              <h2 className="related__title pb-4">You might also like</h2>
             </Col>
             <ProductsList data={relatedProducts}/>
           </Row>

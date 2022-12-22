@@ -3,7 +3,7 @@ import { useGetData } from '../custom-hooks/useGetData'
 import '../styles/dashboard.css'
 
 const Dashboard = () => {
-  const {data: products} = useGetData('products')
+  const {data: products} = useGetData('productos')
   const {data: orders} = useGetData('orders')
 
   return (
