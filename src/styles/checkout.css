@@ -2,6 +2,13 @@
     border: 1px solid var(--card-bg-02)
 }
 
+.billing__form .form__group select{
+    border: 1px solid var(--card-bg-02);
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
 .payment__method{
     display: flex;
     align-items: center;

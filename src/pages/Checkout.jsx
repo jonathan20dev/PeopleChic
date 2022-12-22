@@ -12,6 +12,9 @@ import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import sinpeLogo from '../assets/images/sinpe-logo.png'
 import bacLogo from '../assets/images/bac-bank-transfer.png'
+import countrydata from '../assets/data/tbl_country.json'
+import statedata from '../assets/data/tbl_state.json'
+import citydata from '../assets/data/tbl_city.json'
 
 const Checkout = () => {
   const navigate = useNavigate()
@@ -20,11 +23,14 @@ const Checkout = () => {
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [paymentMethod, setPaymentMethod] = useState()
+  const [states, setStates] = useState([])
+  const [cities, setCities] = useState([])
   const [billingInfo, setBilllingInfo] = useState({
     name: "",
     email: "",
     phoneNumber: "",
     country: "",
+    state: "",
     city: "",
     zipCode: "",
     streetAddress: "",
@@ -41,7 +47,7 @@ const Checkout = () => {
       billingInfo.email &&
       billingInfo.phoneNumber &&
       billingInfo.country &&
-      billingInfo.city &&
+      billingInfo.state &&
       billingInfo.zipCode &&
       billingInfo.streetAddress &&
       paymentMethod
@@ -66,6 +72,23 @@ const Checkout = () => {
       toast.warning("Fill all the information!");
     }
   };
+
+  const handleCountry = ({ target }) => {
+    const billingObj = { ...billingInfo, [target.name]: target.name };
+    setBilllingInfo(billingObj);
+
+    const countryStates = statedata.filter(state => state.country_id === target.value)
+    setStates(countryStates)
+    setCities([])
+  }
+
+  const handleState = ({ target }) => {
+    const billingObj = { ...billingInfo, [target.name]: target.name };
+    setBilllingInfo(billingObj);
+
+    const stateCities = citydata.filter(city => city.state_id === target.value)
+    setCities(stateCities)
+  }
 
   return (
     <Helmet title="Checkout">
@@ -101,20 +124,34 @@ const Checkout = () => {
                   />
                 </FormGroup>
                 <FormGroup className="form__group">
-                  <input
-                    type="text"
-                    placeholder="Enter your Country"
-                    name="country"
-                    onChange={handleChange}
-                  />
+                  <select name="country" onChange={handleCountry}>
+                    <option value="">Country</option>
+                    {
+                      countrydata.map((country) => (
+                        <option value={country.country_id} key={country.country_id}>{country.country_name}</option>
+                      ))
+                    }
+                  </select>
                 </FormGroup>
                 <FormGroup className="form__group">
-                  <input
-                    type="text"
-                    placeholder="Enter your City"
-                    name="city"
-                    onChange={handleChange}
-                  />
+                <select name="state" onChange={handleState}>
+                    <option value="">State</option>
+                    {
+                      states.map((state) => (
+                        <option value={state.state_id} key={state.state_id}>{state.state_name}</option>
+                      ))
+                    }
+                </select>
+                </FormGroup>
+                <FormGroup className="form__group">
+                <select name="city">
+                    <option value="">City</option>
+                    {
+                      cities.map((city) => (
+                        <option value={city.city_id} key={city.city_id}>{city.city_name}</option>
+                      ))
+                    }
+                </select>
                 </FormGroup>
                 <FormGroup className="form__group">
                   <input
