@@ -33,18 +33,15 @@ const AdminNav = () => {
               <div className="logo">
                 <h2 style={{cursor: "pointer"}} onClick={() => navigate('/')}>Mev</h2>
               </div>
-              <div className="search__box">
+              {/* <div className="search__box">
                 <input type="text" placeholder="Search..." />
                 <span>
                   <i className="ri-search-line"></i>
                 </span>
-              </div>
+              </div> */}
               <div className="admin__nav-top-right">
                 <span>
-                  <i className="ri-notification-2-line"></i>
-                </span>
-                <span>
-                  <i className="ri-settings-3-line"></i>
+                  <h6 style={{color: 'white'}} >Panel de administrador</h6>
                 </span>
                 <img src={userIcon} alt="" />
               </div>

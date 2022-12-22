@@ -6,7 +6,7 @@ import { updateDoc, doc } from "firebase/firestore";
 import "../styles/orders.css";
 
 const Orders = () => {
-  const { data: orders, loading } = useGetData("ordenes");
+  const { data: orders, loading } = useGetData("orders");
 
   const handleComplete = async(id, status) => {
     const docRef = doc(db, 'orders', id)
@@ -58,6 +58,10 @@ const Orders = () => {
                             <li>
                               <div>Country:</div>{" "}
                               {item.billingInformation.country}
+                            </li>
+                            <li>
+                              <div>State:</div>{" "}
+                              {item.billingInformation.state}
                             </li>
                             <li>
                               <div>City:</div> {item.billingInformation.city}

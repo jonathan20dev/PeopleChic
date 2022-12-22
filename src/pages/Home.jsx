@@ -47,7 +47,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12" className="text-center">
-              <h2 className="section__title">Productos destacados</h2>
+              <h2 className="section__title pb-5">Productos destacados</h2>
             </Col>
             {
               loading ? <h5 className="fw-bold">Loading...</h5> :
@@ -62,7 +62,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12" className="text-center">
-              <h2 className="section__title">Vestidos de boda</h2>
+              <h2 className="section__title pb-5">Vestidos de boda</h2>
             </Col>
             {
               loading ? <h5 className="fw-bold">Loading...</h5> :
@@ -103,7 +103,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12" className="text-center mb-5">
-              <h2 className="section__title">Vestidos de gala</h2>
+              <h2 className="section__title pb-5">Vestidos de gala</h2>
             </Col>
             {
               loading ? <h5 className="fw-bold">Loading...</h5> :
@@ -119,7 +119,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12" className="text-center mb-5">
-              <h2 className="section__title">Vestidos para niñas</h2>
+              <h2 className="section__title pb-5">Vestidos para niñas</h2>
             </Col>
             {
               loading ? <h5 className="fw-bold">Loading...</h5> :
