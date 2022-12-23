@@ -51,6 +51,9 @@ const ProductDetails = () => {
       try {
         const docRef = await doc(db, "productos", id);
         await setDoc(docRef, { ...product, reviews: [...product.reviews, reviewObj], avgRating: promRatings });
+        setRating(0)
+        reviewUser.current.value = ''
+        reviewMsg.current.value = ''
         toast.success('Thanks for letting a review!')
       } catch (err) {
         toast.error("Couldn't upload your review");
