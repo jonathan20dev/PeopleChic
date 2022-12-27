@@ -123,9 +123,14 @@ const ProductDetails = () => {
                   <span>Category: {product.category.toUpperCase()}</span>
                 </div>
                 <p className="mt-3">{product.shortDesc}</p>
+                <div style={{display: 'flex', alighItems: 'center'}}>
                 <motion.button whileHover={{ scale: 1.1 }} className="buy__btn" onClick={addToCart}>
                   Add to Cart
                 </motion.button>
+                <motion.button whileHover={{ scale: 1.1 }} className="icon__btn" onClick={() => window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(`Mira este producto en People Chic 👀!  ${window.location.href}`))}>
+                  <i className="ri-share-forward-fill"></i>
+                </motion.button>
+                </div>
               </div>
             </Col>
           </Row>
