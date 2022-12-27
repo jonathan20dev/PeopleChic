@@ -30,7 +30,6 @@ const BannerConfig = () => {
 
   const editBanner = async(e) => {
     e.preventDefault();
-    console.log(banner)
     //add product to firebase database
     try {
       const docRef = await doc(db, "banner", banner.id);
@@ -70,6 +69,7 @@ const BannerConfig = () => {
               <FormGroup className="form__group">
                 <span>Title</span>
                 <input
+                  required    
                   type="text"
                   name="title"
                   placeholder={banner?.title}
@@ -79,6 +79,7 @@ const BannerConfig = () => {
               <FormGroup className="form__group">
                 <span>Subtitle</span>
                 <input
+                  required
                   type="text"
                   name="subtitle"
                   placeholder={banner?.subtitle}
@@ -88,9 +89,11 @@ const BannerConfig = () => {
               <FormGroup className="form__group">
                 <span>Expiration date</span>
                 <input
+                  required
                   type="date"
                   name="expirationDate"
                   min={today}
+                  max={'2150-01-01'}
                   defaultValue={banner?.expirationDate}
                   onChange={handleChange}
                 />
@@ -98,7 +101,9 @@ const BannerConfig = () => {
               <FormGroup className="form__group">
                 <span>Banner Image</span>
                 <input
+                  required
                   type="file"
+                  accept="image/*"
                   name="imgUrl"
                   onChange={({ target }) =>
                     setBanner({ ...banner, imgUrl: target.files[0] })
