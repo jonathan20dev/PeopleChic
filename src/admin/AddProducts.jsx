@@ -129,6 +129,7 @@ const AddProducts = () => {
                       <input
                         type="file"
                         name="imgUrl"
+                        accept="image/*"
                         required
                         onChange={({ target }) =>
                           setProduct({ ...product, imgUrl: target.files[0] })
