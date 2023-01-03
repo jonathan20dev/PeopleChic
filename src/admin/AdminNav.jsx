@@ -31,7 +31,7 @@ const AdminNav = () => {
           <Container>
             <div className="admin__nav-wrapper-top">
               <div className="logo">
-                <h2 style={{cursor: "pointer"}} onClick={() => navigate('/')}>Mev</h2>
+                <h2 style={{cursor: "pointer"}} onClick={() => navigate('/')}>PeopleChic</h2>
               </div>
               {/* <div className="search__box">
                 <input type="text" placeholder="Search..." />

@@ -56,6 +56,11 @@ const AddProducts = () => {
     }
   };
 
+  const cancelButton = () => {
+    setLoading(false);
+    navigate("/dashboard/all-products");
+  }
+
   return (
     <section>
       <Container>
@@ -139,6 +144,9 @@ const AddProducts = () => {
                   </div>
                   <button type="submit" className="buy__btn">
                     Add Product
+                  </button>
+                  <button onClick={cancelButton} className="buy__btn">
+                    Cancelar
                   </button>
                 </Form>
               </>

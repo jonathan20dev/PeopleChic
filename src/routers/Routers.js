@@ -12,6 +12,9 @@ import { Dashboard } from '../admin/Dashboard'
 import { Orders } from '../admin/Orders'
 import { BannerConfig } from '../admin/BannerConfig'
 import { Payment } from '../pages/Payment'
+import {EditProduct} from '../admin/EditProduct'
+import {AddCategory} from "../admin/AddCategory.jsx"
+
 
 const Routers = () => {
   return (
@@ -29,6 +32,8 @@ const Routers = () => {
       <Route path='dashboard' element={<Dashboard/>}/>
       <Route path='dashboard/all-products' element={<Allproducts/>}/>
       <Route path='dashboard/add-products' element={<AddProducts/>}/>
+      <Route path='dashboard/add-categories' element={<AddCategory/>}/>
+      <Route path='dashboard/edit-product/:id' element={<EditProduct/>}/>
       <Route path='dashboard/orders' element={<Orders/>}/>
       <Route path='dashboard/banner' element={<BannerConfig/>}/>
     </Routes>

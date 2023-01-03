@@ -14,6 +14,10 @@ const Allproducts = () => {
     toast.success('Deleted succesfully')
   }
 
+  const editProduct = (id) => {
+    navigate("/dashboard/edit-product/"+id);
+  }
+
   return (
     <section>
       <Container>
@@ -22,6 +26,9 @@ const Allproducts = () => {
             <div>
             <button className="buy__btn mb-5 mt-2" onClick={() => {navigate("/dashboard/add-products");}}>
               New product
+            </button>
+            <button className="buy__btn mb-5 mt-2" onClick={() => {navigate("/dashboard/add-categories");}}>
+              New category
             </button>
             </div>
             <div className="table-responsive">
@@ -45,6 +52,9 @@ const Allproducts = () => {
                       <td>{item.category}</td>
                       <td>{item.price}</td>
                       <td>
+                      <button className="btn btn-primary" onClick={() => editProduct(item.id)}>
+                          <i style={{color: '#fff'}} className="ri-edit-line"></i>
+                        </button>
                         <button className="btn btn-danger" onClick={() => {deleteProduct(item.id)}}>
                           <i style={{color: '#fff'}} className="ri-delete-bin-line"></i>
                         </button>
