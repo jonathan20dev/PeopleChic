@@ -4,6 +4,8 @@ import { useGetData } from "../custom-hooks/useGetData";
 import { db } from "../firebase.config";
 import { updateDoc, doc } from "firebase/firestore";
 import "../styles/orders.css";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import DocumentPDF from "./DocumentPDF";
 
 const Orders = () => {
   const { data: orders, loading } = useGetData("orders");
@@ -115,6 +117,7 @@ const Orders = () => {
                   )}
                 </tbody>
               </table>
+              <PDFDownloadLink document={<DocumentPDF orders={orders} fileName="Ordenes.pdf"/>}><button style={{float: "right"}} className="btn btn-primary">Descargar Ordenes</button></PDFDownloadLink>
             </div>
           </Col>
         </Row>
