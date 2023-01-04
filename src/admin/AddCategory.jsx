@@ -5,14 +5,15 @@ import { toast } from "react-toastify";
 import { db } from "../firebase.config";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-
+import { useGetData } from "../custom-hooks/useGetData"
 
 const AddCategory = () => {
+    const { data: productsData, loading } = useGetData('categoria')
     const navigate = useNavigate();
     const [category, setCategory] = useState({
         nombre: "",
     });
-    const [loading, setLoading] = useState(false);
+    const [loading2, setLoading2] = useState(false);
 
     const handleChange = ({ target }) => {
         const productObj = { ...category, [target.name]: target.value };
@@ -21,38 +22,42 @@ const AddCategory = () => {
 
     const addCategory = async (e) => {
         e.preventDefault();
-        setLoading(true);
+        setLoading2(true);
         //add product to firebase database
         try {
             const docRef = await collection(db, "categoria");
             await addDoc(docRef, { ...category });
             toast.success("Category added succesfuly");
-            setLoading(false);
+            setLoading2(false);
             navigate("/dashboard/all-products");
         } catch (err) {
-            setLoading(false);
+            setLoading2(false);
             toast.error("Category not added");
         }
     };
 
     const cancelButton = () => {
-        setLoading(false);
+        setLoading2(false);
         navigate("/dashboard/all-products");
     }
+
+    const editProduct = (id) => {
+        navigate("/dashboard/edit-category/"+id);
+      }
 
     return (
         <section>
             <Container>
                 <Row>
                     <Col lg="12">
-                        {loading ? (
+                        {loading2 ? (
                             <h4 className="py-5">Loading...</h4>
                         ) : (
                             <>
-                                <h4 className="mb-4">Add Category</h4>
+                                <h4 className="mb-4">Nueva categoría</h4>
                                 <Form onSubmit={addCategory}>
                                     <FormGroup className="form__group">
-                                        <span>Category name</span>
+                                        <span>Nombre de la categoría</span>
                                         <input
                                             type="text"
                                             name="nombre"
@@ -62,7 +67,7 @@ const AddCategory = () => {
                                         />
                                     </FormGroup>
                                     <button type="submit" className="buy__btn">
-                                        Add Category
+                                        Añadir categoría
                                     </button>
                                     <button onClick={cancelButton} className="buy__btn">
                                         Cancelar
@@ -73,8 +78,43 @@ const AddCategory = () => {
                     </Col>
                 </Row>
             </Container>
-            <hr/>
-            <hr/>
+            <hr />
+            <hr />
+            <section>
+      <Container>
+        <Row>
+          <Col lg='12'>
+          <h4 className="mb-4">Todas las categorías</h4>
+            <div className="table-responsive">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  loading ? <tr><td className="py-4">Loading...</td></tr> :
+                  productsData.map(item => 
+                    <tr key={item.id}>
+                      <td>{item.nombre}</td>
+                      <td>
+                      <button className="btn btn-primary" onClick={() => editProduct(item.id)}>
+                          <i style={{color: '#fff'}} className="ri-edit-line"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    )
+                }
+              </tbody>
+            </table>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+
         </section>
     );
 };

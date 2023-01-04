@@ -9,11 +9,11 @@ const admin__nav = [
     path: "/dashboard",
   },
   {
-    display: "Products",
+    display: "Productos",
     path: "/dashboard/all-products",
   },
   {
-    display: "Orders",
+    display: "Órdenes",
     path: "/dashboard/orders",
   },
   {

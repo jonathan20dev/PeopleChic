@@ -14,7 +14,7 @@ import { BannerConfig } from '../admin/BannerConfig'
 import { Payment } from '../pages/Payment'
 import {EditProduct} from '../admin/EditProduct'
 import {AddCategory} from "../admin/AddCategory.jsx"
-
+import {EditCategory} from "../admin/EditCategory"
 
 const Routers = () => {
   return (
@@ -34,6 +34,7 @@ const Routers = () => {
       <Route path='dashboard/add-products' element={<AddProducts/>}/>
       <Route path='dashboard/add-categories' element={<AddCategory/>}/>
       <Route path='dashboard/edit-product/:id' element={<EditProduct/>}/>
+      <Route path='dashboard/edit-category/:id' element={<EditCategory/>}/>
       <Route path='dashboard/orders' element={<Orders/>}/>
       <Route path='dashboard/banner' element={<BannerConfig/>}/>
     </Routes>

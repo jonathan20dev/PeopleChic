@@ -25,26 +25,26 @@ const Allproducts = () => {
           <Col lg='12'>
             <div>
             <button className="buy__btn mb-5 mt-2" onClick={() => {navigate("/dashboard/add-products");}}>
-              New product
+              Nuevo producto
             </button>
             <button className="buy__btn mb-5 mt-2" onClick={() => {navigate("/dashboard/add-categories");}}>
-              New category
+              Categorias
             </button>
             </div>
             <div className="table-responsive">
             <table className="table">
               <thead>
                 <tr>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Price</th>
-                  <th>Action</th>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Categoria</th>
+                  <th>Precio</th>
+                  <th>Acción</th>
                 </tr>
               </thead>
               <tbody>
                 {
-                  loading ? <tr><td className="py-4">Loading...</td></tr> :
+                  loading ? <tr><td className="py-4">Cargando...</td></tr> :
                   productsData.map(item => 
                     <tr key={item.id}>
                       <td><img src={item.imgUrl} alt="" /></td>

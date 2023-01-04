@@ -70,41 +70,41 @@ const AddProducts = () => {
               <h4 className="py-5">Loading...</h4>
             ) : (
               <>
-                <h4 className="mb-4">Add Product</h4>
+                <h4 className="mb-4">Añadir producto</h4>
                 <Form onSubmit={addProduct}>
                   <FormGroup className="form__group">
-                    <span>Product name</span>
+                    <span>Nombre del producto</span>
                     <input
                       type="text"
                       name="productName"
                       required
-                      placeholder="Double Sofa"
+                      placeholder="Vestido de boda..."
                       onChange={handleChange}
                     />
                   </FormGroup>
                   <FormGroup className="form__group">
-                    <span>Short Description</span>
+                    <span>Pequeña descripción</span>
                     <input
                       type="text"
                       name="shortDesc"
                       required
-                      placeholder="Double sofa for livingroom..."
+                      placeholder="Vestido para boda civíl..."
                       onChange={handleChange}
                     />
                   </FormGroup>
                   <FormGroup className="form__group">
-                    <span>Description</span>
+                    <span>Descipción</span>
                     <input
                       type="text"
                       name="description"
                       required
-                      placeholder="Beatiful and comfy sofa with..."
+                      placeholder="Hermoso y ajustable..."
                       onChange={handleChange}
                     />
                   </FormGroup>
                   <div className="d-flex align-items-center justify-content-between gap-5">
                     <FormGroup className="form__group w-50">
-                      <span>Price</span>
+                      <span>Precio</span>
                       <input
                         type="text"
                         name="price"
@@ -114,7 +114,7 @@ const AddProducts = () => {
                       />
                     </FormGroup>
                     <FormGroup className="form__group w-50">
-                      <span>Category</span>
+                      <span>Categoría</span>
                       <select
                         name="category"
                         className="w-100 p-2"
@@ -130,7 +130,7 @@ const AddProducts = () => {
                   </div>
                   <div>
                     <FormGroup className="form__group">
-                      <span>Product Image</span>
+                      <span>Imagen del producto</span>
                       <input
                         type="file"
                         name="imgUrl"
@@ -143,7 +143,7 @@ const AddProducts = () => {
                     </FormGroup>
                   </div>
                   <button type="submit" className="buy__btn">
-                    Add Product
+                    Añadir producto
                   </button>
                   <button onClick={cancelButton} className="buy__btn">
                     Cancelar
