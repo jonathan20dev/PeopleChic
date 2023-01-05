@@ -26,7 +26,7 @@ describe('empty spec', () => {
         cy.get('.buy__btn').click({force: true}).then(() => {
           cy.get('.mb-4').should('contain.text', '')})})
 
-          it('03_crearProducto[Pago] con datos inválidos', () => {
+          it('03_crearProducto[Pago] con datos inválidos: descripción, precio', () => {
   
         cy.get('form > :nth-child(1) > input').click({force: true}).type('Lorem Ipsum Dolor Sit Amet Consectetur')
         cy.get(':nth-child(2) > input').click({force: true}).type('Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aen')
@@ -89,7 +89,7 @@ describe('empty spec', () => {
         cy.get('.buy__btn').click({force: true}).then(() => {
           cy.get('.mb-4').should('contain.text', 'Añadir producto')})})
 
-          it('08_crearProducto[Pago] con datos inválidos', () => {
+          it('08_crearProducto[Pago] con datos inválidos: nombre, descripción', () => {
   
         cy.get('form > :nth-child(1) > input').click({force: true}).type('Lorem Ipsum Dolor Sit Amet Consectetur')
         cy.get(':nth-child(2) > input').click({force: true}).type('Cobija Tejida.')
@@ -102,7 +102,7 @@ describe('empty spec', () => {
         cy.get('.buy__btn').click({force: true}).then(() => {
           cy.get('.mb-4').should('contain.text', 'Añadir producto')})})
 
-          it('09_crearProducto[Pago] con datos inválidos', () => {
+          it('09_crearProducto[Pago] con datos inválidos: descripción, precio, imagen', () => {
   
         cy.get('form > :nth-child(1) > input').click({force: true}).type('Cobija')
         cy.get(':nth-child(3) > input').click({force: true}).type('Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Descripción Corta: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aen')
