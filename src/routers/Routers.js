@@ -14,6 +14,7 @@ import { BannerConfig } from '../admin/BannerConfig'
 import { Payment } from '../pages/Payment'
 import {EditProduct} from '../admin/EditProduct'
 import {AddCategory} from "../admin/AddCategory.jsx"
+import Sales from '../admin/Sales'
 
 
 const Routers = () => {
@@ -35,6 +36,7 @@ const Routers = () => {
       <Route path='dashboard/add-categories' element={<AddCategory/>}/>
       <Route path='dashboard/edit-product/:id' element={<EditProduct/>}/>
       <Route path='dashboard/orders' element={<Orders/>}/>
+      <Route path='dashboard/sales' element={<Sales/>}/>
       <Route path='dashboard/banner' element={<BannerConfig/>}/>
     </Routes>
   )

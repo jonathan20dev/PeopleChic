@@ -17,6 +17,10 @@ const admin__nav = [
     path: "/dashboard/orders",
   },
   {
+    display: "Sales",
+    path: "/dashboard/sales",
+  },
+  {
     display: "Banner",
     path: "/dashboard/banner",
   },
