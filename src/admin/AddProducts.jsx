@@ -37,14 +37,14 @@ const AddProducts = () => {
       );
       const uploadTask = uploadBytesResumable(storageRef, product.imgUrl);
       uploadTask.on("state_changed",
-        (snapshot) => {},
+        (snapshot) => { },
         (error) => {
           toast.error("Image not uploaded");
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await addDoc(docRef, { ...product, imgUrl: downloadURL });
-            toast.success("Product added succesfuly");
+            toast.success("Producto añadido exitosamente!");
           });
         }
       );
@@ -52,7 +52,7 @@ const AddProducts = () => {
       navigate("/dashboard/all-products");
     } catch (err) {
       setLoading(false);
-      toast.error("Product not added");
+      toast.error("No se pudo agregar el producto");
     }
   };
 
@@ -120,11 +120,11 @@ const AddProducts = () => {
                         className="w-100 p-2"
                         onChange={handleChange}
                       >
-                        <option value="chair">Chair</option>
-                        <option value="sofa">Sofa</option>
-                        <option value="mobile">Mobile</option>
-                        <option value="watch">Watch</option>
-                        <option value="wireless">Wireless</option>
+                        <option value="sofa">Accesorio</option>
+                        <option value="mobile">Cortina</option>
+                        <option value="watch">Blusa</option>
+                        <option value="wireless">Lencería</option>
+                        <option value="wireless">Vestido</option>
                       </select>
                     </FormGroup>
                   </div>
@@ -145,9 +145,7 @@ const AddProducts = () => {
                   <button type="submit" className="buy__btn">
                     Añadir producto
                   </button>
-                  <button onClick={cancelButton} className="buy__btn">
-                    Cancelar
-                  </button>
+                  
                 </Form>
               </>
             )}
