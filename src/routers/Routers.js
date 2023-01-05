@@ -14,8 +14,12 @@ import { BannerConfig } from '../admin/BannerConfig'
 import { Payment } from '../pages/Payment'
 import {EditProduct} from '../admin/EditProduct'
 import {AddCategory} from "../admin/AddCategory.jsx"
+<<<<<<< HEAD
 import Sales from '../admin/Sales'
 
+=======
+import {EditCategory} from "../admin/EditCategory"
+>>>>>>> 8c7df522a09ea6be0f502ebdda4d828460c698a5
 
 const Routers = () => {
   return (
@@ -35,6 +39,7 @@ const Routers = () => {
       <Route path='dashboard/add-products' element={<AddProducts/>}/>
       <Route path='dashboard/add-categories' element={<AddCategory/>}/>
       <Route path='dashboard/edit-product/:id' element={<EditProduct/>}/>
+      <Route path='dashboard/edit-category/:id' element={<EditCategory/>}/>
       <Route path='dashboard/orders' element={<Orders/>}/>
       <Route path='dashboard/sales' element={<Sales/>}/>
       <Route path='dashboard/banner' element={<BannerConfig/>}/>

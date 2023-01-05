@@ -64,10 +64,10 @@ const BannerConfig = () => {
       <Container>
         <Row>
           <Col lg="12">
-            <h4 className="mb-4">Edit Banner</h4>
+            <h4 className="mb-4">Editar Banner</h4>
             <Form onSubmit={editBanner}>
               <FormGroup className="form__group">
-                <span>Title</span>
+                <span>Titulo</span>
                 <input
                   required    
                   type="text"
@@ -77,7 +77,7 @@ const BannerConfig = () => {
                 />
               </FormGroup>
               <FormGroup className="form__group">
-                <span>Subtitle</span>
+                <span>SubTitulo</span>
                 <input
                   required
                   type="text"
@@ -99,7 +99,7 @@ const BannerConfig = () => {
                 />
               </FormGroup>
               <FormGroup className="form__group">
-                <span>Banner Image</span>
+                <span>Imagen para el banner</span>
                 <input
                   required
                   type="file"
@@ -112,7 +112,7 @@ const BannerConfig = () => {
               </FormGroup>
               <div className="d-flex w-100 justify-content-between">
               <button type="submit" className="buy__btn mt-0">
-                  Save
+                  Guardar
                 </button>
                 <button
                   type="button"
@@ -120,7 +120,7 @@ const BannerConfig = () => {
                   onClick={() => {deactivateBanner(banner.active)}}
                 >
                   {
-                    banner?.active ? 'Active' : 'Deactivated'
+                    banner?.active ? 'Activo' : 'Desactivado'
                   }
                 </button>
               </div>
