@@ -19,15 +19,15 @@ const Payment = () => {
       <CommonSection title="Checkout" />
       <section>
         <Container className="d-flex flex-column justify-content-center">
-          <h5 className="mb-5 fw-bold" style={{textAlign: 'center'}}>Your order was placed succesfully!</h5>
+          <h5 className="mb-5 fw-bold" style={{textAlign: 'center'}}>Su pedido se ha realizado correctamente!</h5>
           <p style={{textAlign: 'center'}}>
-            Please make the payment via {id} to <span style={{fontWeight: '500', color: '#000'}}>{method}</span>
+          Realice el pago a través de {id} a <span style={{fontWeight: '500', color: '#000'}}>{method}</span>
           </p>
           <p style={{textAlign: 'center', marginBottom: '100px', marginTop: '10px'}}>
-            And send us a screenshot of the receipt
+           Envíanos una captura de pantalla del recibo
           </p>
           <div className="w-100 d-flex justify-content-center">
-            <button className="buy__btn w-100px" onClick={() => window.open("https://api.whatsapp.com/send?phone=84148249&text=Hello, I just placed an order!")}>Let's talk on <span><img style={{width: '28px', marginLeft: '10px'}} src={waLogo} alt="" /></span></button>
+            <button className="buy__btn w-100px" onClick={() => window.open("https://api.whatsapp.com/send?phone=84148249&text=Hello, I just placed an order!")}>Hablemos en <span><img style={{width: '28px', marginLeft: '10px'}} src={waLogo} alt="" /></span></button>
           </div>
         </Container>
       </section>

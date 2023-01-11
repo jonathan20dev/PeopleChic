@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../firebase.config";
 import { doc, getDoc } from 'firebase/firestore'
 import { toast } from "react-toastify";
-import { collection, setDoc } from "firebase/firestore";
+import { setDoc } from "firebase/firestore";
 
 const EditCategory = () => {
     const navigate = useNavigate();
@@ -72,6 +72,7 @@ const EditCategory = () => {
                                         <input
                                             type="text"
                                             name="nombre"
+                                            style={{textTransform: "capitalize"}}
                                             required
                                             value={categoria.nombre}
                                             onChange={handleChange}

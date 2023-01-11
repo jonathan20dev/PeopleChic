@@ -41,7 +41,7 @@ const BannerConfig = () => {
       uploadTask.on("state_changed",
         (snapshot) => {},
         (error) => {
-          toast.error("Image not uploaded");
+          toast.error("Imagen no cargada");
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -49,9 +49,9 @@ const BannerConfig = () => {
           });
         }
       );
-      toast.success("Banner edited succesfuly");
+      toast.success("Banner editado exitosamente");
     } catch (err) {
-      toast.error("Banner not edited");
+      toast.error("Banner no editado");
     }
   };
 

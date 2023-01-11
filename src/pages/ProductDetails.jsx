@@ -54,9 +54,9 @@ const ProductDetails = () => {
         setRating(0)
         reviewUser.current.value = ''
         reviewMsg.current.value = ''
-        toast.success('Thanks for letting a review!')
+        toast.success('Gracias por dejar una reseña!')
       } catch (err) {
-        toast.error("Couldn't upload your review");
+        toast.error("No se ha podido cargar su reseña");
       }
   }
 
@@ -67,7 +67,7 @@ const ProductDetails = () => {
       productName: product.productName,
       price: product.price
     }))
-    toast.success('Product added successfully')
+    toast.success('Producto añadido exitosamente')
   }
 
   useEffect(() => {
@@ -78,7 +78,7 @@ const ProductDetails = () => {
       if (docSnap.exists()){
         setProduct(docSnap.data())
       } else {
-        toast.error('no product!')
+        toast.error('Sin productos!')
       }
     }
     getProduct()
@@ -125,9 +125,9 @@ const ProductDetails = () => {
                 <p className="mt-3">{product.shortDesc}</p>
                 <div style={{display: 'flex', alighItems: 'center'}}>
                 <motion.button whileHover={{ scale: 1.1 }} className="buy__btn" onClick={addToCart}>
-                  Add to Cart
+                  Añadir al carrito
                 </motion.button>
-                <motion.button whileHover={{ scale: 1.1 }} className="icon__btn" onClick={() => window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(`Mira este producto en People Chic 👀!  ${window.location.href}`))}>
+                <motion.button whileHover={{ scale: 1.1 }} className="icon__btn" onClick={() => window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(`Mira este producto de People Chic 👀😎✨!  ${window.location.href}`))}>
                   <i className="ri-share-forward-fill"></i>
                 </motion.button>
                 </div>
@@ -145,7 +145,7 @@ const ProductDetails = () => {
                   className={`${tab === "desc" ? "active__tab" : ""}`}
                   onClick={() => setTab("desc")}
                 >
-                  Description
+                  Descripción
                 </h6>
                 <h6
                   className={`${tab === "rev" ? "active__tab" : ""}`}
@@ -171,7 +171,7 @@ const ProductDetails = () => {
                       ))}
                     </ul>
                     <div className="review__form">
-                      <h4>Leave your experience</h4>
+                      <h4>Deja tu experiencia</h4>
                       <form action="" onSubmit={handleSubmit}>
                         <div className="form__group">
                           <input type="text" placeholder="Enter name" ref={reviewUser} required/>
@@ -197,7 +197,7 @@ const ProductDetails = () => {
                           <textarea rows={4} type="text" placeholder="Review message..." ref={reviewMsg} required/>
                         </div>
                         <button type='submit' className="buy__btn">
-                          Submit
+                          Enviar
                         </button>
                       </form>
                     </div>
@@ -206,7 +206,7 @@ const ProductDetails = () => {
               )}
             </Col>
             <Col lg='12' className="mt-5">
-              <h2 className="related__title pb-4">You might also like</h2>
+              <h2 className="related__title pb-4">También le puede interesar</h2>
             </Col>
             <ProductsList data={relatedProducts}/>
           </Row>

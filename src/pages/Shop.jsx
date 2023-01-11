@@ -8,6 +8,7 @@ import { useGetData } from "../custom-hooks/useGetData";
 
 const Shop = () => {
   const {data: products} = useGetData('productos')
+  const {data: categoriesData} = useGetData('categoria')
   const [productsData, setProductsData] = useState([])
   const sortBox = useRef('')
   
@@ -53,28 +54,27 @@ const Shop = () => {
             <Col lg="3" md="6" className='filter__column'>
               <div className="filter__widget">
                 <select onChange={handleFilter}>
-                  <option>Category</option>
+                  <option>Categorías</option>
                   <option value="all">Todo</option>
-                  <option value="articulo">Accesorios</option>
-                  <option value="cortinas">Cortinas</option>
-                  <option value="blusa">Blusas</option>
-                  <option value="lencería">Lencería</option>
-                  <option value="vestido">Vestidos</option>
+                  {categoriesData.map((el,index) =>{ 
+                  return(
+                      <option value={el.nombre} key={index} style={{textTransform: "capitalize"}}>{el.nombre}</option>
+                  )})}
                 </select>
               </div>
             </Col>
             <Col lg="3" md="6" className='filter__column text-end'>
               <div className="filter__widget">
                 <select onChange={handleSort} ref={sortBox}>
-                  <option value='default'>Sort By</option>
-                  <option value="highest price">Highest price</option>
-                  <option value="lowset price">Lowset price</option>
+                  <option value='default'>Ordenar por</option>
+                  <option value="highest price">Precios altos</option>
+                  <option value="lowset price">Precios bajos</option>
                 </select>
               </div>
             </Col>
             <Col lg="6" md="12">
               <div className="search__box">
-                <input type="text" placeholder="Search..." onChange={handleSearch}/>
+                <input type="text" placeholder="Buscar..." onChange={handleSearch}/>
                 <span>
                   <i className="ri-search-line"></i>
                 </span>
@@ -87,7 +87,7 @@ const Shop = () => {
         <Container className='pt-0'>
           <Row>
             {
-              productsData.length === 0 ? <h1 className='text-center fs-4'>No products were found!</h1> : <ProductsList data={productsData}/>
+              productsData.length === 0 ? <h1 className='text-center fs-4'>No se encontraron productos!</h1> : <ProductsList data={productsData}/>
             }
           </Row>
         </Container>

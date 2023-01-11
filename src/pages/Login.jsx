@@ -17,13 +17,13 @@ const Login = () => {
               <h3 className='fw-bold mb-4'>Login</h3>
               <Form className='auth__form'>
                 <FormGroup className='form__group'>
-                  <input type="email" placeholder='Enter your email' value={email} onChange={e => setEmail(e.target.value)}/>
+                  <input type="email" placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}/>
                 </FormGroup>
                 <FormGroup className='form__group'>
-                  <input type="password" placeholder='Enter a password' value={password} onChange={e => setPassword(e.target.value)}/>
+                  <input type="password" placeholder='Contraseña' value={password} onChange={e => setPassword(e.target.value)}/>
                 </FormGroup>
                 <button type='submit' className="buy__btn auth__btn">Login</button>
-                <p>Don't have an account? <Link to='/signup'>Create an account</Link></p>
+                <p>Don't have an account? <Link to='/signup'>Crear una cuenta</Link></p>
               </Form>
             </Col>
           </Row>

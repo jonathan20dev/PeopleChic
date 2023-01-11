@@ -1,9 +1,18 @@
 import "./footer.css";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const Footer = () => {
+  const navigate = useNavigate()
   const year = new Date().getFullYear();
+
+  const adviceButton = () => {
+    navigate("/advice");
+}
+
+
   return (
     <footer className="footer">
       <Container>
@@ -15,9 +24,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="footer__text mt-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis
-              quae, ut corrupti corporis eaque officiis eveniet quam
-              voluptatibus expedita? Neque.
+              Cualquier duda o sugerencia con respecto al sitio web, nos la puedes comunicar por <button onClick={adviceButton} className="btn btn-primary btn-sm">aqui</button>
             </p>
           </Col>
           <Col lg="3">
@@ -47,7 +54,7 @@ const Footer = () => {
                   <span>
                     <i className="ri-map-pin-line"></i>
                   </span>
-                  <p>San José, Costa Rica</p>
+                  <p>Río Cuarto, Alajuela, Costa Rica</p>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-2">
                   <span>
@@ -59,14 +66,14 @@ const Footer = () => {
                   <span>
                     <i className="ri-mail-line"></i>
                   </span>
-                  <p>pstore@gmail.com</p>
+                  <p>people-chic-store@gmail.com</p>
                 </ListGroupItem>
               </ListGroup>
             </div>
           </Col>
           <Col lg="3">
             <div className="footer__quick-links">
-              <h4 className="quick__links-title">Location</h4>
+              <h4 className="quick__links-title">Ubicación</h4>
               <p className="mb-2">Río cuarto, al lado de la librería Danés</p>
               <div className="mb-3">
                 <div className="mapouter">

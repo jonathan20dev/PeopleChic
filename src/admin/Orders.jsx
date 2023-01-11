@@ -24,19 +24,19 @@ const Orders = () => {
               <table className="table">
                 <thead>
                   <tr>
-                    <th>Date</th>
-                    <th>Billing Information</th>
-                    <th>Product</th>
-                    <th>Qty</th>
-                    <th>Total Price</th>
-                    <th>Total Amount</th>
-                    <th>Actions</th>
+                    <th>Fecha</th>
+                    <th>Información de facturación</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio total</th>
+                    <th>Importe total</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   {loading ? (
                     <tr>
-                      <td className="py-4">Loading...</td>
+                      <td className="py-4">Cargando...</td>
                     </tr>
                   ) : (
                     orders.map((item) => (
@@ -45,31 +45,31 @@ const Orders = () => {
                         <td>
                           <ul className="orders__billing-list">
                             <li>
-                              <div>Order:</div> {item.id}
+                              <div>Órden:</div> {item.id}
                             </li>
                             <li>
-                              <div>Name:</div> {item.billingInformation.name}
+                              <div>Nombre:</div> {item.billingInformation.name}
                             </li>
                             <li>
                               <div>Email:</div> {item.billingInformation.email}
                             </li>
                             <li>
-                              <div>Phone Number:</div>{" "}
+                              <div>Número de teléfono:</div>{" "}
                               {item.billingInformation.phoneNumber}
                             </li>
                             <li>
-                              <div>Country:</div>{" "}
+                              <div>Pais:</div>{" "}
                               {item.billingInformation.country}
                             </li>
                             <li>
-                              <div>State:</div>{" "}
+                              <div>Estado:</div>{" "}
                               {item.billingInformation.state}
                             </li>
                             <li>
-                              <div>City:</div> {item.billingInformation.city}
+                              <div>Ciudad:</div> {item.billingInformation.city}
                             </li>
                             <li>
-                              <div>Zip Code:</div>{" "}
+                              <div>Código postal:</div>{" "}
                               {item.billingInformation.zipCode}
                             </li>
                             <li>
@@ -109,7 +109,7 @@ const Orders = () => {
                               handleComplete(item.id, item.completed);
                             }}
                           >
-                            {item.completed ? "completed" : "incompleted"}
+                            {item.completed ? "Completado" : "Imcompleto"}
                           </button>
                         </td>
                       </tr>
