@@ -14,6 +14,9 @@ import { BannerConfig } from '../admin/BannerConfig'
 import { Payment } from '../pages/Payment'
 import {EditProduct} from '../admin/EditProduct'
 import {AddCategory} from "../admin/AddCategory.jsx"
+
+import Sales from '../admin/Sales'
+
 import {EditCategory} from "../admin/EditCategory"
 import {Advice} from "../admin/Advice.jsx"
 
@@ -37,6 +40,7 @@ const Routers = () => {
       <Route path='dashboard/edit-product/:id' element={<EditProduct/>}/>
       <Route path='dashboard/edit-category/:id' element={<EditCategory/>}/>
       <Route path='dashboard/orders' element={<Orders/>}/>
+      <Route path='dashboard/sales' element={<Sales/>}/>
       <Route path='dashboard/banner' element={<BannerConfig/>}/>
       <Route path='/advice' element={<Advice/>}/>
     </Routes>
