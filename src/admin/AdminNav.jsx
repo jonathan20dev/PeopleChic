@@ -17,7 +17,7 @@ const admin__nav = [
     path: "/dashboard/orders",
   },
   {
-    display: "Sales",
+    display: "Ventas",
     path: "/dashboard/sales",
   },
   {

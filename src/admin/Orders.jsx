@@ -10,15 +10,22 @@ import DocumentPDF from "./DocumentPDF";
 const Orders = () => {
   const { data: orders, loading } = useGetData("orders");
 
-  const handleComplete = async(id, status) => {
-    const docRef = doc(db, 'orders', id)
-    await updateDoc(docRef, {completed: !status});
+  const handleComplete = async (id, status) => {
+    const docRef = doc(db, "orders", id);
+    await updateDoc(docRef, { completed: !status });
   };
 
   return (
     <section>
       <Container>
         <Row>
+          <PDFDownloadLink
+            document={<DocumentPDF orders={orders} fileName="Ordenes.pdf" />}
+          >
+            <button style={{ float: "left" }} className="btn btn-primary mb-5">
+              Descargar Ordenes
+            </button>
+          </PDFDownloadLink>
           <Col lg="12">
             <div className="table-responsive">
               <table className="table">
@@ -58,12 +65,10 @@ const Orders = () => {
                               {item.billingInformation.phoneNumber}
                             </li>
                             <li>
-                              <div>Pais:</div>{" "}
-                              {item.billingInformation.country}
+                              <div>Pais:</div> {item.billingInformation.country}
                             </li>
                             <li>
-                              <div>Estado:</div>{" "}
-                              {item.billingInformation.state}
+                              <div>Estado:</div> {item.billingInformation.state}
                             </li>
                             <li>
                               <div>Ciudad:</div> {item.billingInformation.city}
@@ -109,7 +114,7 @@ const Orders = () => {
                               handleComplete(item.id, item.completed);
                             }}
                           >
-                            {item.completed ? "Completado" : "Imcompleto"}
+                            {item.completed ? "Completado" : "Incompleto"}
                           </button>
                         </td>
                       </tr>
@@ -117,7 +122,6 @@ const Orders = () => {
                   )}
                 </tbody>
               </table>
-              <PDFDownloadLink document={<DocumentPDF orders={orders} fileName="Ordenes.pdf"/>}><button style={{float: "right"}} className="btn btn-primary">Descargar Ordenes</button></PDFDownloadLink>
             </div>
           </Col>
         </Row>
