@@ -24,13 +24,13 @@ const Orders = () => {
               <table className="table">
                 <thead>
                   <tr>
-                    <th>Date</th>
-                    <th>Billing Information</th>
-                    <th>Product</th>
-                    <th>Qty</th>
-                    <th>Total Price</th>
-                    <th>Total Amount</th>
-                    <th>Actions</th>
+                    <th>Fecha</th>
+                    <th>Informacion</th>
+                    <th>Productos</th>
+                    <th>Cantidad</th>
+                    <th>Precios</th>
+                    <th>Monto Neto</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,35 +45,35 @@ const Orders = () => {
                         <td>
                           <ul className="orders__billing-list">
                             <li>
-                              <div>Order:</div> {item.id}
+                              <div>Orden:</div> {item.id}
                             </li>
                             <li>
-                              <div>Name:</div> {item.billingInformation.name}
+                              <div>Nombre:</div> {item.billingInformation.name}
                             </li>
                             <li>
                               <div>Email:</div> {item.billingInformation.email}
                             </li>
                             <li>
-                              <div>Phone Number:</div>{" "}
+                              <div>Telefono:</div>{" "}
                               {item.billingInformation.phoneNumber}
                             </li>
                             <li>
-                              <div>Country:</div>{" "}
+                              <div>Pais:</div>{" "}
                               {item.billingInformation.country}
                             </li>
                             <li>
-                              <div>State:</div>{" "}
+                              <div>Provincia:</div>{" "}
                               {item.billingInformation.state}
                             </li>
                             <li>
-                              <div>City:</div> {item.billingInformation.city}
+                              <div>Ciudad:</div> {item.billingInformation.city}
                             </li>
                             <li>
-                              <div>Zip Code:</div>{" "}
+                              <div>Codigo Postal:</div>{" "}
                               {item.billingInformation.zipCode}
                             </li>
                             <li>
-                              <div>Street address:</div>{" "}
+                              <div>Direccion :</div>{" "}
                               {item.billingInformation.streetAddress}
                             </li>
                           </ul>
@@ -109,7 +109,7 @@ const Orders = () => {
                               handleComplete(item.id, item.completed);
                             }}
                           >
-                            {item.completed ? "completed" : "incompleted"}
+                            {item.completed ? "completado" : "incompletado"}
                           </button>
                         </td>
                       </tr>

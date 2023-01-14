@@ -14,12 +14,9 @@ import { BannerConfig } from '../admin/BannerConfig'
 import { Payment } from '../pages/Payment'
 import {EditProduct} from '../admin/EditProduct'
 import {AddCategory} from "../admin/AddCategory.jsx"
-<<<<<<< HEAD
+import {EditCategory} from "../admin/EditCategory.jsx"
 import Sales from '../admin/Sales'
 
-=======
-import {EditCategory} from "../admin/EditCategory"
->>>>>>> 8c7df522a09ea6be0f502ebdda4d828460c698a5
 
 const Routers = () => {
   return (
