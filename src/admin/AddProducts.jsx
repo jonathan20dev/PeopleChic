@@ -5,6 +5,8 @@ import { db, storage } from "../firebase.config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { useGetData } from "../custom-hooks/useGetData"
+
 
 const AddProducts = () => {
   const navigate = useNavigate();
@@ -18,7 +20,8 @@ const AddProducts = () => {
     reviews: [],
     avgRating: 0,
   });
-  const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(false);
+  const {data: categoriesData, loading} = useGetData('categoria')
 
   const handleChange = ({ target }) => {
     const productObj = { ...product, [target.name]: target.value };
@@ -27,7 +30,7 @@ const AddProducts = () => {
 
   const addProduct = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setLoading2(true);
     //add product to firebase database
     try {
       const docRef = await collection(db, "productos");
@@ -39,7 +42,7 @@ const AddProducts = () => {
       uploadTask.on("state_changed",
         (snapshot) => { },
         (error) => {
-          toast.error("Image not uploaded");
+          toast.error("Imagen no cargada");
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -48,16 +51,16 @@ const AddProducts = () => {
           });
         }
       );
-      setLoading(false);
+      setLoading2(false);
       navigate("/dashboard/all-products");
     } catch (err) {
-      setLoading(false);
+      setLoading2(false);
       toast.error("No se pudo agregar el producto");
     }
   };
 
   const cancelButton = () => {
-    setLoading(false);
+    setLoading2(false);
     navigate("/dashboard/all-products");
   }
 
@@ -66,7 +69,7 @@ const AddProducts = () => {
       <Container>
         <Row>
           <Col lg="12">
-            {loading ? (
+            {(loading2 && loading) ? (
               <h4 className="py-5">Loading...</h4>
             ) : (
               <>
@@ -118,13 +121,15 @@ const AddProducts = () => {
                       <select
                         name="category"
                         className="w-100 p-2"
+                        style={{textTransform: "capitalize"}}
                         onChange={handleChange}
                       >
-                        <option value="sofa">Accesorio</option>
-                        <option value="mobile">Cortina</option>
-                        <option value="watch">Blusa</option>
-                        <option value="wireless">Lencería</option>
-                        <option value="wireless">Vestido</option>
+                        {categoriesData.map((el,index) =>{ 
+                          return(
+                            <option value={el.nombre} key={index} style={{textTransform: "capitalize"}}>{el.nombre}</option>
+                          )}
+                          
+                          )}
                       </select>
                     </FormGroup>
                   </div>
@@ -145,7 +150,9 @@ const AddProducts = () => {
                   <button type="submit" className="buy__btn">
                     Añadir producto
                   </button>
-                  
+                  <button onClick={cancelButton} className="buy__btn">
+                    Cancelar
+                  </button>
                 </Form>
               </>
             )}

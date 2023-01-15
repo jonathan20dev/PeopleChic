@@ -11,7 +11,7 @@ const Allproducts = () => {
 
   const deleteProduct = async(id) => {
     await deleteDoc(doc(db, 'productos', id))
-    toast.success('Deleted succesfully')
+    toast.success('¡Producto eliminado exitosamente!')
   }
 
   const editProduct = (id) => {
@@ -37,7 +37,7 @@ const Allproducts = () => {
                 <tr>
                   <th>Imagen</th>
                   <th>Nombre</th>
-                  <th>Categoria</th>
+                  <th>Categoría</th>
                   <th>Precio</th>
                   <th>Acción</th>
                 </tr>

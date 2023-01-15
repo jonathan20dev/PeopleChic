@@ -50,9 +50,9 @@ const Home = () => {
               <h2 className="section__title pb-5">Productos destacados</h2>
             </Col>
             {
-              loading ? <h5 className="fw-bold">Loading...</h5> :
+              loading ? <h5 className="fw-bold">cargando...</h5> :
               <ProductsList
-              data={products.filter((item) => item.category === "articulo")}
+              data={products.filter((item) => item.category === "Accesorios")}
             />
             }
           </Row>
@@ -65,7 +65,7 @@ const Home = () => {
               <h2 className="section__title pb-5">Vestidos de boda</h2>
             </Col>
             {
-              loading ? <h5 className="fw-bold">Loading...</h5> :
+              loading ? <h5 className="fw-bold">cargando...</h5> :
               <ProductsList
               data={products.filter((item) => item.subc === "boda")}
             />
@@ -89,7 +89,7 @@ const Home = () => {
                 whileHover={{ scale: 1.1 }}
                 className="buy__btn store__btn"
               >
-                <Link to="/shop">Visit Store</Link>
+                <Link to="/shop">Vistar la tienda</Link>
               </motion.button>
             </Col>
             <Col lg="6" md="12" className="text-end counter__img">
@@ -106,7 +106,7 @@ const Home = () => {
               <h2 className="section__title pb-5">Vestidos de gala</h2>
             </Col>
             {
-              loading ? <h5 className="fw-bold">Loading...</h5> :
+              loading ? <h5 className="fw-bold">cargando...</h5> :
               <ProductsList
               data={products.filter((item) => item.subc === "gala")}
             />
@@ -122,7 +122,7 @@ const Home = () => {
               <h2 className="section__title pb-5">Vestidos para niñas</h2>
             </Col>
             {
-              loading ? <h5 className="fw-bold">Loading...</h5> :
+              loading ? <h5 className="fw-bold">cargando...</h5> :
               <ProductsList
               data={products.filter((item) => item.subc === "kid")}
             />

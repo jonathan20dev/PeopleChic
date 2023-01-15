@@ -27,12 +27,12 @@ const AddCategory = () => {
         try {
             const docRef = await collection(db, "categoria");
             await addDoc(docRef, { ...category });
-            toast.success("Category added succesfuly");
+            toast.success("¡Categoría añadida exitosamente!");
             setLoading2(false);
             navigate("/dashboard/all-products");
         } catch (err) {
             setLoading2(false);
-            toast.error("Category not added");
+            toast.error("Categoría no añadida");
         }
     };
 
@@ -51,7 +51,7 @@ const AddCategory = () => {
                 <Row>
                     <Col lg="12">
                         {loading2 ? (
-                            <h4 className="py-5">Loading...</h4>
+                            <h4 className="py-5">Cargando...</h4>
                         ) : (
                             <>
                                 <h4 className="mb-4">Nueva categoría</h4>
@@ -95,10 +95,10 @@ const AddCategory = () => {
               </thead>
               <tbody>
                 {
-                  loading ? <tr><td className="py-4">Loading...</td></tr> :
+                  loading ? <tr><td className="py-4">Cargando...</td></tr> :
                   productsData.map(item => 
                     <tr key={item.id}>
-                      <td>{item.nombre}</td>
+                      <td style={{textTransform: "capitalize"}}>{item.nombre}</td>
                       <td>
                       <button className="btn btn-primary" onClick={() => editProduct(item.id)}>
                           <i style={{color: '#fff'}} className="ri-edit-line"></i>

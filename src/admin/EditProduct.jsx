@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../firebase.config";
 import { doc, getDoc } from 'firebase/firestore'
 import { toast } from "react-toastify";
-import { collection, setDoc } from "firebase/firestore";
+import {setDoc } from "firebase/firestore";
+import { useGetData } from "../custom-hooks/useGetData"
+
 
 const EditProduct = () => {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
+    const [loading2, setLoading2] = useState(false);
     const { id } = useParams();
     const [product, setProduct] = useState({
         imgUrl: '',
@@ -23,6 +25,7 @@ const EditProduct = () => {
         shortDesc: '',
         category: ''
     })
+    const {data: categoriesData, loading} = useGetData('categoria')
 
     useEffect(() => {
         const docRef = doc(db, 'productos', id)
@@ -32,7 +35,7 @@ const EditProduct = () => {
             if (docSnap.exists()) {
                 setProduct(docSnap.data())
             } else {
-                toast.error('no product!')
+                toast.error('Sin productos!')
             }
         }
         getProduct()
@@ -40,21 +43,21 @@ const EditProduct = () => {
 
     const editProduct = async (e) => {
         e.preventDefault();
-        setLoading(true);
+        setLoading2(true);
         //add product to firebase database
         try {
             await setDoc(doc(db, "productos", id), product);
-            toast.success("Product added succesfuly");
-            setLoading(false);
+            toast.success("Producto añadido exitosamente");
+            setLoading2(false);
             navigate("/dashboard/all-products");
         } catch (err) {
-            setLoading(false);
-            toast.error("Product not modified");
+            setLoading2(false);
+            toast.error("Producto no modificado!");
         }
     };
 
     const cancelButton = () => {
-        setLoading(false);
+        setLoading2(false);
         navigate("/dashboard/all-products");
     }
 
@@ -68,7 +71,7 @@ const EditProduct = () => {
             <Container>
                 <Row>
                     <Col lg="12">
-                        {loading ? (
+                        {(loading2 && loading) ? (
                             <h4 className="py-5">Loading...</h4>
                         ) : (
                             <>
@@ -120,13 +123,13 @@ const EditProduct = () => {
                                             <select
                                                 name="category"
                                                 className="w-100 p-2"
+                                                style={{textTransform: "capitalize"}}
                                                 onChange={handleChange}
                                             >
-                                                <option value="sofa">Accesorio</option>
-                                                <option value="mobile">Cortina</option>
-                                                <option value="watch">Blusa</option>
-                                                <option value="wireless">Lencería</option>
-                                                <option value="wireless">Vestido</option>
+                                                {categoriesData.map((el,index) =>{ 
+                                                return(
+                                                    <option value={el.nombre} key={index} style={{textTransform: "capitalize"}}>{el.nombre}</option>
+                                                )})}
                                             </select>
                                         </FormGroup>
                                     </div>

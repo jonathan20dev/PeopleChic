@@ -179,6 +179,7 @@ const Sales = () => {
             <table className="table">
               <thead>
                 <tr>
+<<<<<<< HEAD
                   <th>
                     <div className="filter__widget__select">
                       <select onChange={handleFilter}>
@@ -191,12 +192,18 @@ const Sales = () => {
                   <th>Productos</th>
                   <th>Ventas</th>
                   <th>Ganancia / Perdida</th>
+=======
+                  <th>Meses</th>
+                  <th>Ventas</th>
+                  <th>Crecimiento</th>
+                  <th>Ganancia porcentual</th>
+>>>>>>> d9cec9035d86021970aa6c15952897286a1470fe
                 </tr>
               </thead>
               <tbody>
                 {loading ? (
                   <tr>
-                    <td className="py-4">Loading...</td>
+                    <td className="py-4">Cargando...</td>
                   </tr>
                 ) : (
                   select === "Dia" ? 

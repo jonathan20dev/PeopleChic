@@ -53,7 +53,7 @@ const Checkout = () => {
       paymentMethod
     ) {
       if (totalQty === 0) {
-        toast.warning("There are no products in your cart");
+        toast.warning("No hay productos en tú carrito!");
       } else {
         const docRef = await collection(db, "orders");
         const today = new Date().toDateString();
@@ -69,7 +69,7 @@ const Checkout = () => {
         navigate(`/payment/${paymentMethod}`);
       }
     } else {
-      toast.warning("Fill all the information!");
+      toast.warning("Rellena toda la información!");
     }
   };
 
@@ -105,12 +105,12 @@ const Checkout = () => {
         <Container>
           <Row>
             <Col lg="8">
-              <h6 className="mb-4 fw-bold">Billing Information</h6>
+              <h6 className="mb-4 fw-bold">Información de facturación</h6>
               <Form className="billing__form">
                 <FormGroup className="form__group">
                   <input
                     type="text"
-                    placeholder="Enter your name"
+                    placeholder="Nombre"
                     name="name"
                     onChange={handleChange}
                   />
@@ -118,7 +118,7 @@ const Checkout = () => {
                 <FormGroup className="form__group">
                   <input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Correo electrónico"
                     name="email"
                     onChange={handleChange}
                   />
@@ -126,14 +126,14 @@ const Checkout = () => {
                 <FormGroup className="form__group">
                   <input
                     type="number"
-                    placeholder="Enter your phone number"
+                    placeholder="Número de teléfono"
                     name="phoneNumber"
                     onChange={handleChange}
                   />
                 </FormGroup>
                 <FormGroup className="form__group">
                   <select name="country" onChange={handleCountry}>
-                    <option value="">Country</option>
+                    <option value="">País</option>
                     {
                       countrydata.map((country) => (
                         <option value={[country.country_id, country.country_name]} key={country.country_id}>{country.country_name}</option>
@@ -143,7 +143,7 @@ const Checkout = () => {
                 </FormGroup>
                 <FormGroup className="form__group">
                 <select name="state" onChange={handleState}>
-                    <option value="">State</option>
+                    <option value="">Estado</option>
                     {
                       states.map((state) => (
                         <option value={[state.state_id, state.state_name]} key={state.state_id}>{state.state_name}</option>
@@ -153,7 +153,7 @@ const Checkout = () => {
                 </FormGroup>
                 <FormGroup className="form__group">
                 <select name="city" onChange={handleCity}>
-                    <option value="">City</option>
+                    <option value="">Ciudad</option>
                     {
                       cities.map((city) => (
                         <option value={[city.city_id, city.city_name]} key={city.city_id}>{city.city_name}</option>
@@ -164,7 +164,7 @@ const Checkout = () => {
                 <FormGroup className="form__group">
                   <input
                     type="number"
-                    placeholder="Enter your Zip code"
+                    placeholder="Código postal"
                     name="zipCode"
                     onChange={handleChange}
                   />
@@ -172,12 +172,12 @@ const Checkout = () => {
                 <FormGroup className="form__group">
                   <input
                     type="text"
-                    placeholder="Enter your Street address"
+                    placeholder="Dirección exacta"
                     name="streetAddress"
                     onChange={handleChange}
                   />
                 </FormGroup>
-                <h6 className="mb-4 fw-bold mt-5">Choose your payment method</h6>
+                <h6 className="mb-4 fw-bold mt-5">Elige tu método de pago</h6>
                 <FormGroup className="w-100 payment__method" style={{background: paymentMethod === 'SINPE Movil' ? '#d6e5fb' : ''}} onClick={() => setPaymentMethod('SINPE Movil')}>
                   <div className="d-flex gap-3">
                     <img src={sinpeLogo} alt="" />
@@ -187,7 +187,7 @@ const Checkout = () => {
                 <FormGroup className="w-100 payment__method" style={{background: paymentMethod === 'Bank Transfer' ? '#d6e5fb' : ''}} onClick={() => setPaymentMethod('Bank Transfer')}>
                   <div className="d-flex gap-3" >
                     <img src={bacLogo} alt="" />
-                    <h6>Bank Transfer</h6>
+                    <h6>Transferencia bancaria</h6>
                   </div>
                 </FormGroup>
               </Form>
@@ -195,9 +195,9 @@ const Checkout = () => {
             <Col lg="4">
               <div className="checkout__cart">
                 <h6>
-                  Total Qty:{" "}
+                  Cantidad total:{" "}
                   <span>
-                    {totalQty} {totalQty > 1 ? "items" : "item"}
+                    {totalQty} {totalQty > 1 ? "productos" : "producto"}
                   </span>
                 </h6>
                 <h6>
@@ -205,19 +205,19 @@ const Checkout = () => {
                 </h6>
                 <h6>
                   <span>
-                    Shipping: <br />
-                    Free shipping
+                  Envío: <br />
+                  Envío gratuito
                   </span>
-                  <span>$0</span>
+                  <span>₡0</span>
                 </h6>
                 <h4>
-                  Total Cost: <span>${totalAmount}</span>
+                  Costo total: <span>${totalAmount}</span>
                 </h4>
                 <button
                   className="buy__btn auth__btn w-100"
                   onClick={handleOrder}
                 >
-                  Place Order
+                  Realizar pedido
                 </button>
               </div>
             </Col>

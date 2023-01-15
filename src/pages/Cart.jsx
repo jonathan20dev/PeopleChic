@@ -26,11 +26,11 @@ const Cart = () => {
                 <table className='table bordered'>
                 <thead>
                   <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Qty</th>
-                    <th>Delete</th>
+                    <th>Imagen</th>
+                    <th>Titulo</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Eliminar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -55,7 +55,7 @@ const Cart = () => {
                   <span className='fs-4 fw-bold'>${totalAmount}</span>
                 </h6>
               </div>
-              <p className='fs-6 mt-2'>Calculo de precio</p>
+              <p className='fs-6 mt-2'>Cálculo de precio</p>
               <div>
               <button className="buy__btn w-100"><Link to='/checkout'>Pagar</Link></button>
                 <button className="buy__btn w-100 mt-3"><Link to='/shop'>Continuar comprando</Link></button>
