@@ -10,26 +10,41 @@ import DocumentPDF from "./DocumentPDF";
 const Orders = () => {
   const { data: orders, loading } = useGetData("orders");
 
-  const handleComplete = async(id, status) => {
-    const docRef = doc(db, 'orders', id)
-    await updateDoc(docRef, {completed: !status});
+  const handleComplete = async (id, status) => {
+    const docRef = doc(db, "orders", id);
+    await updateDoc(docRef, { completed: !status });
   };
 
   return (
     <section>
       <Container>
         <Row>
+          <PDFDownloadLink
+            document={<DocumentPDF orders={orders} fileName="Ordenes.pdf" />}
+          >
+            <button style={{ float: "left" }} className="btn btn-primary mb-5">
+              Descargar Ordenes
+            </button>
+          </PDFDownloadLink>
           <Col lg="12">
             <div className="table-responsive">
               <table className="table">
                 <thead>
                   <tr>
                     <th>Fecha</th>
+<<<<<<< HEAD
+                    <th>Informacion</th>
+                    <th>Productos</th>
+                    <th>Cantidad</th>
+                    <th>Precios</th>
+                    <th>Monto Neto</th>
+=======
                     <th>Información de facturación</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Precio total</th>
                     <th>Importe total</th>
+>>>>>>> d9cec9035d86021970aa6c15952897286a1470fe
                     <th>Acciones</th>
                   </tr>
                 </thead>
@@ -45,7 +60,11 @@ const Orders = () => {
                         <td>
                           <ul className="orders__billing-list">
                             <li>
+<<<<<<< HEAD
+                              <div>Orden:</div> {item.id}
+=======
                               <div>Órden:</div> {item.id}
+>>>>>>> d9cec9035d86021970aa6c15952897286a1470fe
                             </li>
                             <li>
                               <div>Nombre:</div> {item.billingInformation.name}
@@ -54,7 +73,8 @@ const Orders = () => {
                               <div>Email:</div> {item.billingInformation.email}
                             </li>
                             <li>
-                              <div>Número de teléfono:</div>{" "}
+<<<<<<< HEAD
+                              <div>Telefono:</div>{" "}
                               {item.billingInformation.phoneNumber}
                             </li>
                             <li>
@@ -62,18 +82,36 @@ const Orders = () => {
                               {item.billingInformation.country}
                             </li>
                             <li>
-                              <div>Estado:</div>{" "}
+                              <div>Provincia:</div>{" "}
                               {item.billingInformation.state}
+=======
+                              <div>Número de teléfono:</div>{" "}
+                              {item.billingInformation.phoneNumber}
+                            </li>
+                            <li>
+                              <div>Pais:</div> {item.billingInformation.country}
+                            </li>
+                            <li>
+                              <div>Estado:</div> {item.billingInformation.state}
+>>>>>>> d9cec9035d86021970aa6c15952897286a1470fe
                             </li>
                             <li>
                               <div>Ciudad:</div> {item.billingInformation.city}
                             </li>
                             <li>
+<<<<<<< HEAD
+                              <div>Codigo Postal:</div>{" "}
+=======
                               <div>Código postal:</div>{" "}
+>>>>>>> d9cec9035d86021970aa6c15952897286a1470fe
                               {item.billingInformation.zipCode}
                             </li>
                             <li>
+<<<<<<< HEAD
                               <div>Dirección:</div>{" "}
+=======
+                              <div>Direccion :</div>{" "}
+>>>>>>> 0d16474b388b6069769425f9083ef38da9dcdf59
                               {item.billingInformation.streetAddress}
                             </li>
                           </ul>
@@ -109,7 +147,11 @@ const Orders = () => {
                               handleComplete(item.id, item.completed);
                             }}
                           >
-                            {item.completed ? "Completado" : "Imcompleto"}
+<<<<<<< HEAD
+                            {item.completed ? "completado" : "incompletado"}
+=======
+                            {item.completed ? "Completado" : "Incompleto"}
+>>>>>>> d9cec9035d86021970aa6c15952897286a1470fe
                           </button>
                         </td>
                       </tr>
@@ -117,7 +159,6 @@ const Orders = () => {
                   )}
                 </tbody>
               </table>
-              <PDFDownloadLink document={<DocumentPDF orders={orders} fileName="Ordenes.pdf"/>}><button style={{float: "right"}} className="btn btn-primary">Descargar Ordenes</button></PDFDownloadLink>
             </div>
           </Col>
         </Row>

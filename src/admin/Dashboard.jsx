@@ -1,6 +1,9 @@
 import { Container, Row, Col } from "reactstrap"
 import { useGetData } from '../custom-hooks/useGetData'
 import '../styles/dashboard.css'
+import "../styles/orders.css";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import DashboardPDF from "./DashboardPDF";
 
 const Dashboard = () => {
   const {data: products} = useGetData('productos')
@@ -30,6 +33,7 @@ const Dashboard = () => {
             </div>
           </Col>
         </Row>
+        <PDFDownloadLink document={<DashboardPDF orders={orders} products={products} fileName="Ordenes.pdf"/>}><button style={{float: "right"}} className="btn btn-primary">Descargar Informe</button></PDFDownloadLink>
       </Container>
     </section>
     </>

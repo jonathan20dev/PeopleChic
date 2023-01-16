@@ -59,10 +59,17 @@ const DocumentPDF = ({orders}) => {
             <Text style={styles.tableCellRow}>Fecha</Text> 
           </View> 
           <View style={styles.tableCol}> 
+<<<<<<< HEAD
             <Text style={styles.tableCellRow}>Información de pago</Text> 
           </View> 
           <View style={styles.tableCol}> 
             <Text style={styles.tableCellRow}>Producto</Text> 
+=======
+            <Text style={styles.tableCellRow}>Informacion</Text> 
+          </View> 
+          <View style={styles.tableCol}> 
+            <Text style={styles.tableCellRow}>Productos</Text> 
+>>>>>>> 0d16474b388b6069769425f9083ef38da9dcdf59
           </View> 
           <View style={styles.tableCol}> 
             <Text style={styles.tableCellRow}>Cantidad</Text> 
@@ -74,6 +81,7 @@ const DocumentPDF = ({orders}) => {
             <Text style={styles.tableCell}>{item.date}</Text> 
           </View>
           <View style={styles.tableCol}> 
+<<<<<<< HEAD
             <Text style={styles.tableCell}>órden: {item.id}</Text> 
             <Text style={styles.tableCell}>nombre: {item.billingInformation.name}</Text> 
             <Text style={styles.tableCell}>correo: {item.billingInformation.email}</Text>
@@ -82,6 +90,16 @@ const DocumentPDF = ({orders}) => {
             <Text style={styles.tableCell}>ciudad: {item.billingInformation.city}</Text>
             <Text style={styles.tableCell}>código postal: {item.billingInformation.zipCode}</Text>
             <Text style={styles.tableCell}>dirección: {item.billingInformation.streetAddress}</Text>
+=======
+            <Text style={styles.tableCell}>Orden: {item.id}</Text> 
+            <Text style={styles.tableCell}>Nombre: {item.billingInformation.name}</Text> 
+            <Text style={styles.tableCell}>Email: {item.billingInformation.email}</Text>
+            <Text style={styles.tableCell}>Telefono: {item.billingInformation.phoneNumber}</Text>
+            <Text style={styles.tableCell}>Pais: {item.billingInformation.country}</Text>
+            <Text style={styles.tableCell}>Ciudad: {item.billingInformation.city}</Text>
+            <Text style={styles.tableCell}>Codigo Postal: {item.billingInformation.zipCode}</Text>
+            <Text style={styles.tableCell}>Direccion: {item.billingInformation.streetAddress}</Text>
+>>>>>>> 0d16474b388b6069769425f9083ef38da9dcdf59
           </View>
           <View style={styles.tableCol}> 
             {item.cart.items.map((item) => (
