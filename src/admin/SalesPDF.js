@@ -72,10 +72,10 @@ const SalesPDF = ({orders}) => {
       <Text style={styles.tableTitle}>Reporte de Ventas Actuales ({utc})</Text> 
         <View style={styles.tableRowHeader}> 
           <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Month</Text> 
+            <Text style={styles.tableCellRow}>Meses</Text> 
           </View> 
           <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Sales</Text> 
+            <Text style={styles.tableCellRow}>Ventas</Text> 
           </View> 
           <View style={styles.tableCol}> 
             <Text style={styles.tableCellRow}>Ganancia</Text> 

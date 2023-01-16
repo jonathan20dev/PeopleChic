@@ -52,7 +52,7 @@ const Home = () => {
             {
               loading ? <h5 className="fw-bold">cargando...</h5> :
               <ProductsList
-              data={products.filter((item) => item.category === "Accesorios")}
+              data={products.filter((item) => item.category === "Accesorios").slice(0, 4)}
             />
             }
           </Row>
@@ -67,7 +67,7 @@ const Home = () => {
             {
               loading ? <h5 className="fw-bold">cargando...</h5> :
               <ProductsList
-              data={products.filter((item) => item.subc === "boda")}
+              data={products.filter((item) => item.subc === "boda").slice(0, 4)}
             />
             }
             
@@ -93,7 +93,7 @@ const Home = () => {
               </motion.button>
             </Col>
             <Col lg="6" md="12" className="text-end counter__img">
-              <img src={banner[0]?.imgUrl} alt="" />
+              <img  src={banner[0]?.imgUrl} alt="" />
             </Col>
           </Row>
         </Container>
@@ -108,7 +108,7 @@ const Home = () => {
             {
               loading ? <h5 className="fw-bold">cargando...</h5> :
               <ProductsList
-              data={products.filter((item) => item.subc === "gala")}
+              data={products.filter((item) => item.subc === "gala").slice(0, 4)}
             />
             }
             
@@ -124,7 +124,7 @@ const Home = () => {
             {
               loading ? <h5 className="fw-bold">cargando...</h5> :
               <ProductsList
-              data={products.filter((item) => item.subc === "kid")}
+              data={products.filter((item) => item.subc === "niña")}
             />
             }
             

@@ -50,7 +50,7 @@ const Allproducts = () => {
                       <td><img src={item.imgUrl} alt="" /></td>
                       <td>{item.productName}</td>
                       <td>{item.category}</td>
-                      <td>{item.price}</td>
+                      <td>₡{item.price}</td>
                       <td>
                       <button className="btn btn-primary" onClick={() => editProduct(item.id)}>
                           <i style={{color: '#fff'}} className="ri-edit-line"></i>

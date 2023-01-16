@@ -56,16 +56,16 @@ const DocumentPDF = ({orders}) => {
       <Text style={styles.tableTitle}>Reporte de Ordenes Actuales ({utc})</Text> 
         <View style={styles.tableRowHeader}> 
           <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Date</Text> 
+            <Text style={styles.tableCellRow}>Fecha</Text> 
           </View> 
           <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Billing Information</Text> 
+            <Text style={styles.tableCellRow}>Información de pago</Text> 
           </View> 
           <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Product</Text> 
+            <Text style={styles.tableCellRow}>Producto</Text> 
           </View> 
           <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Qty</Text> 
+            <Text style={styles.tableCellRow}>Cantidad</Text> 
           </View> 
         </View>
         {orders.map((item) => 
@@ -74,14 +74,14 @@ const DocumentPDF = ({orders}) => {
             <Text style={styles.tableCell}>{item.date}</Text> 
           </View>
           <View style={styles.tableCol}> 
-            <Text style={styles.tableCell}>Order: {item.id}</Text> 
-            <Text style={styles.tableCell}>Name: {item.billingInformation.name}</Text> 
-            <Text style={styles.tableCell}>Email: {item.billingInformation.email}</Text>
-            <Text style={styles.tableCell}>Phone Number: {item.billingInformation.phoneNumber}</Text>
-            <Text style={styles.tableCell}>Country: {item.billingInformation.country}</Text>
-            <Text style={styles.tableCell}>City: {item.billingInformation.city}</Text>
-            <Text style={styles.tableCell}>Zip Code: {item.billingInformation.zipCode}</Text>
-            <Text style={styles.tableCell}>Street address: {item.billingInformation.streetAddress}</Text>
+            <Text style={styles.tableCell}>órden: {item.id}</Text> 
+            <Text style={styles.tableCell}>nombre: {item.billingInformation.name}</Text> 
+            <Text style={styles.tableCell}>correo: {item.billingInformation.email}</Text>
+            <Text style={styles.tableCell}>teléfono: {item.billingInformation.phoneNumber}</Text>
+            <Text style={styles.tableCell}>país: {item.billingInformation.country}</Text>
+            <Text style={styles.tableCell}>ciudad: {item.billingInformation.city}</Text>
+            <Text style={styles.tableCell}>código postal: {item.billingInformation.zipCode}</Text>
+            <Text style={styles.tableCell}>dirección: {item.billingInformation.streetAddress}</Text>
           </View>
           <View style={styles.tableCol}> 
             {item.cart.items.map((item) => (

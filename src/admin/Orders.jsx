@@ -73,7 +73,7 @@ const Orders = () => {
                               {item.billingInformation.zipCode}
                             </li>
                             <li>
-                              <div>Street address:</div>{" "}
+                              <div>Dirección:</div>{" "}
                               {item.billingInformation.streetAddress}
                             </li>
                           </ul>

@@ -40,7 +40,7 @@ const Sales = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th>Meses</th>
+                  <th>Mes</th>
                   <th>Ventas</th>
                   <th>Crecimiento</th>
                   <th>Ganancia porcentual</th>

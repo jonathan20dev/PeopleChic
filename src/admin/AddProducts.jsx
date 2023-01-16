@@ -70,7 +70,7 @@ const AddProducts = () => {
         <Row>
           <Col lg="12">
             {(loading2 && loading) ? (
-              <h4 className="py-5">Loading...</h4>
+              <h4 className="py-5">cargando...</h4>
             ) : (
               <>
                 <h4 className="mb-4">Añadir producto</h4>
@@ -112,7 +112,7 @@ const AddProducts = () => {
                         type="text"
                         name="price"
                         required
-                        placeholder="$299"
+                        placeholder="₡5000"
                         onChange={handleChange}
                       />
                     </FormGroup>
