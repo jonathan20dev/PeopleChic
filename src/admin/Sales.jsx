@@ -179,10 +179,7 @@ const Sales = () => {
             <table className="table">
               <thead>
                 <tr>
-<<<<<<< HEAD
                   <th>Mes</th>
-=======
-<<<<<<< HEAD
                   <th>
                     <div className="filter__widget__select">
                       <select onChange={handleFilter}>
@@ -195,13 +192,10 @@ const Sales = () => {
                   <th>Productos</th>
                   <th>Ventas</th>
                   <th>Ganancia / Perdida</th>
-=======
                   <th>Meses</th>
->>>>>>> 0d16474b388b6069769425f9083ef38da9dcdf59
                   <th>Ventas</th>
                   <th>Crecimiento</th>
                   <th>Ganancia porcentual</th>
->>>>>>> d9cec9035d86021970aa6c15952897286a1470fe
                 </tr>
               </thead>
               <tbody>

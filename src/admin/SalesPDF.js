@@ -99,29 +99,6 @@ const SalesPDF = ({orders, select}) => {
 
   return (
     <Document>
-<<<<<<< HEAD
-    <Page style={styles.body}>
-      <View style={styles.table}>
-      <Text style={styles.tableTitle}>Reporte de Ventas Actuales ({utc})</Text> 
-        <View style={styles.tableRowHeader}> 
-          <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Meses</Text> 
-          </View> 
-          <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Ventas</Text> 
-          </View> 
-          <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Ganancia</Text> 
-          </View> 
-          <View style={styles.tableCol}> 
-            <Text style={styles.tableCellRow}>Porcentaje de Ganancia</Text> 
-          </View> 
-        </View>
-        {orders.map((item) => 
-        <View key={item.id} style={styles.tableRow}>
-          <View style={styles.tableCol}> 
-            <Text style={styles.tableCell}>{item.month}</Text> 
-=======
       <Page style={styles.body}>
         <View style={styles.table}>
         <Text style={styles.tableTitle}>Reporte de Ventas Actuales ({utc})</Text> 
@@ -138,7 +115,6 @@ const SalesPDF = ({orders, select}) => {
             <View style={styles.tableCol}> 
               <Text style={styles.tableCellRow}>Porcentaje de Ganancia</Text> 
             </View> 
->>>>>>> 0d16474b388b6069769425f9083ef38da9dcdf59
           </View>
           {orders.map((item) => 
           item.type === "day" ?
