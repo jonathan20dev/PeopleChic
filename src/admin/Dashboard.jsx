@@ -17,7 +17,7 @@ const Dashboard = () => {
           <Col className="lg-3 dashboard__box">
             <div className="revenue__box">
               <h5>Total en ventas</h5>
-              <span>${orders.reduce((total, item) => total + item.cart.totalAmount, 0)}</span>
+              <span>₡{orders.reduce((total, item) => total + item.cart.totalAmount, 0)}</span>
             </div>
           </Col>
           <Col className="lg-3 dashboard__box">

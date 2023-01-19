@@ -39,7 +39,7 @@ const Cart = () => {
                     <tr key={index}>
                       <td><img src={item.imgUrl} alt="" /></td>
                       <td>{item.productName}</td>
-                      <td>${item.price}</td>
+                      <td>₡{item.price}</td>
                       <td>{item.quantity}</td>
                       <td><motion.i whileTap={{scale: 1.2}} className="ri-delete-bin-line" onClick={() => deleteProduct(item)}></motion.i></td>
                     </tr>
@@ -52,7 +52,7 @@ const Cart = () => {
             <Col lg='3'>
               <div>
                 <h6 className='d-flex align-items-center justify-content-between'>SubTotal
-                  <span className='fs-4 fw-bold'>${totalAmount}</span>
+                  <span className='fs-4 fw-bold'>₡{totalAmount}</span>
                 </h6>
               </div>
               <p className='fs-6 mt-2'>Cálculo de precio</p>

@@ -4,7 +4,7 @@ import { Helmet } from "../components/Helmet/Helmet";
 import { CommonSection } from "../components/UI/CommonSection";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../redux/slices/cartSlice";
 import { db } from "../firebase.config";
@@ -42,6 +42,7 @@ const Checkout = () => {
   };
 
   const handleOrder = async () => {
+    
     if (
       billingInfo.name &&
       billingInfo.email &&
@@ -100,7 +101,7 @@ const Checkout = () => {
 
   return (
     <Helmet title="Checkout">
-      <CommonSection title="Checkout" />
+      <CommonSection title="Pago" />
       <section>
         <Container>
           <Row>
@@ -201,7 +202,7 @@ const Checkout = () => {
                   </span>
                 </h6>
                 <h6>
-                  Subtotal: <span>${totalAmount}</span>
+                  Subtotal: <span>₡{totalAmount}</span>
                 </h6>
                 <h6>
                   <span>
@@ -211,7 +212,7 @@ const Checkout = () => {
                   <span>₡0</span>
                 </h6>
                 <h4>
-                  Costo total: <span>${totalAmount}</span>
+                  Costo total: <span>₡{totalAmount}</span>
                 </h4>
                 <button
                   className="buy__btn auth__btn w-100"

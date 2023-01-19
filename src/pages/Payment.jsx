@@ -27,7 +27,7 @@ const Payment = () => {
            Envíanos una captura de pantalla del recibo
           </p>
           <div className="w-100 d-flex justify-content-center">
-            <button className="buy__btn w-100px" onClick={() => window.open("https://api.whatsapp.com/send?phone=84148249&text=Hello, I just placed an order!")}>Hablemos en <span><img style={{width: '28px', marginLeft: '10px'}} src={waLogo} alt="" /></span></button>
+            <button className="buy__btn w-100px" onClick={() => window.open("https://api.whatsapp.com/send?phone=84148249&text=Hola! me gustaría realizar una órden de compra, para los productos..")}>Hablemos en <span><img style={{width: '28px', marginLeft: '10px'}} src={waLogo} alt="" /></span></button>
           </div>
         </Container>
       </section>

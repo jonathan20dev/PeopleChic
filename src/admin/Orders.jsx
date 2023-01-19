@@ -102,11 +102,11 @@ const Orders = () => {
                         <td>
                           <ul>
                             {item.cart.items.map((item) => (
-                              <li key={item.id}>${item.totalPrice}</li>
+                              <li key={item.id}>₡{item.totalPrice}</li>
                             ))}
                           </ul>
                         </td>
-                        <td>${item.cart.totalAmount}</td>
+                        <td>₡{item.cart.totalAmount}</td>
                         <td>
                           <button
                             className={`btn btn-${

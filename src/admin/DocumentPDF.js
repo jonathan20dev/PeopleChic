@@ -85,7 +85,7 @@ const DocumentPDF = ({orders}) => {
           </View>
           <View style={styles.tableCol}> 
             {item.cart.items.map((item) => (
-                  <Text key={item.id} style={styles.tableCell}>{item.productName}</Text> 
+                  <Text key={item.id} style={styles.tableCell}>{item.productName}|  {item.totalPrice+" col"}</Text> 
             ))}
           </View>
           <View style={styles.tableCol}> 
